@@ -8,10 +8,10 @@ public class MovieController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        webGLMovieTexture = new WebGLMovieTexture("StreamingAssets/Chrome_ImF.mp4");
+        webGLMovieTexture = new WebGLMovieTexture("StreamingAssets/test.mp4");
         cube.GetComponent<MeshRenderer>().material = new Material(Shader.Find("Diffuse"));
         cube.GetComponent<MeshRenderer>().material.mainTexture = webGLMovieTexture;
-        webGLMovieTexture.Play();
+        // webGLMovieTexture.Play();
 	}
 	
 	// Update is called once per frame

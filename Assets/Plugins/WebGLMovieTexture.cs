@@ -94,15 +94,18 @@ public class WebGLMovieTexture
 		Play();
 		var width = WebGLMovieTextureWidth(m_Instance);
 		var height = WebGLMovieTextureHeight(m_Instance);
-		m_Texture = new Texture2D(width, height, TextureFormat.ARGB32, false);
+		m_Texture = new Texture2D(600, 600, TextureFormat.ARGB32, false);
 		m_Texture.wrapMode = TextureWrapMode.Clamp;	
+		m_Texture.Apply();
 		// Pause again, because we don't want to start Playback until explicitly requested.	
-		Pause();
+		// Pause();
 	}
 
 	public void Update()
 	{
-		WebGLMovieTextureUpdate(m_Instance, m_Texture.GetNativeTextureID());
+		m_Texture.SetPixel(0,0, Color.green);
+		m_Texture.Apply();
+		WebGLMovieTextureUpdate(m_Instance, m_Texture.GetNativeTexturePtr().ToInt32());
 	}
 
 	public void Play()
